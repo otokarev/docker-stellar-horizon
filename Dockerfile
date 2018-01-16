@@ -1,6 +1,6 @@
 FROM golang:alpine as builder
 
-ENV  HORIZON_VERSION=v0.11.0
+ENV  HORIZON_VERSION=v0.11.1
 
 RUN mkdir -p /go/src/github.com/stellar/ \
     && apk add --no-cache git openssh-client curl make gcc musl-dev linux-headers \
