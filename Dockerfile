@@ -8,8 +8,8 @@ RUN apk add --no-cache git gcc linux-headers musl-dev glide mercurial \
     && go env \
     && mkdir -p $GOPATH/src/github.com/stellar/ \
     && git clone https://github.com/stellar/go.git $GOPATH/src/github.com/stellar/go \
-    && git checkout $HORIZON_VERSION \
     && cd $GOPATH/src/github.com/stellar/go \
+    && git checkout $HORIZON_VERSION \
     && glide install \
     && go env \
     && cp -r $GOPATH/src/github.com/stellar/go/vendor/* $GOPATH/src/ \
