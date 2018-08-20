@@ -3,12 +3,13 @@ FROM golang:alpine as builder
 ENV HORIZON_VERSION=horizon-v0.14.0rc2
 
 
-RUN apk add --no-cache git gcc linux-headers musl-dev glide mercurial \
+RUN apk add --no-cache curl git gcc linux-headers musl-dev mercurial \
     && mkdir -p /go/src/github.com/stellar/ \
     && git clone https://github.com/stellar/go.git /go/src/github.com/stellar/go \
     && cd /go/src/github.com/stellar/go \
     && git checkout $HORIZON_VERSION \
-    && glide install \
+    && curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh  \
+    && dep ensure \
     && go install github.com/stellar/go/services/horizon
 
 
