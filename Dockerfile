@@ -1,6 +1,6 @@
 FROM golang:alpine as builder
 
-ENV HORIZON_VERSION=horizon-v0.12.3
+ENV HORIZON_VERSION=horizon-v0.14.0rc2
 
 
 RUN apk add --no-cache git gcc linux-headers musl-dev glide mercurial \
